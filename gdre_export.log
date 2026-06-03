@@ -1,0 +1,36 @@
+GDRE Tools v2.5.0-beta.5
+Windows 10.0.26200, NVIDIA GeForce RTX 3060 Laptop GPU, vulkan
+Opening file: C:/Users/mihir/Downloads/Box Fighters Windows.exe
+Multiple passing candidates for bytecode version 13:
+3.5.0-stable (a7aad78), 3.2.0-stable (5565f55)
+Choosing only one that matches engine version: 3.2.0-stable (5565f55).
+Loaded 356 imported files
+Detected Engine Version: 3.4.2
+Detected Bytecode Revision: 3.2.0-stable (5565f55)
+Verified 795 files, no errors detected!
+Extracted 795 files, no errors detected!
+Saved project config.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     15
+Failed scripts:                         0
+Imported resources for export session:  356
+Successfully converted:                 356
+Lossy:                                  0
+Rewrote metadata:                       0
+Non-importable conversions:             0
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 3.4.2 to edit the project.
+
+*******************************************************************************
+

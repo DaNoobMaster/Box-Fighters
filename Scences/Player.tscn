@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Box Man SpriteSheet.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/light 2d shader.png" type="Texture" id=3]
+[ext_resource path="res://Scences/Sounds/Shoot Sound.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scences/Sounds/JumpSound.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27, 5.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 23, 2.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 34, 34 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 384, 343 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 4
+frame = 2
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="JumpArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpArea2D"]
+position = Vector2( -1, 36.5 )
+shape = SubResource( 1 )
+
+[node name="UpHealthArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpHealthArea2D"]
+position = Vector2( 1, -33.5 )
+shape = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+texture_scale = 0.19
+energy = 0.1
+
+[node name="pos" type="Position2D" parent="."]
+position = Vector2( 96, 9 )
+
+[node name="pos2" type="Position2D" parent="."]
+position = Vector2( -96, 9 )
+
+[node name="Main Area1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main Area1"]
+shape = SubResource( 4 )
+
+[node name="CloneTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="target" type="Position2D" parent="."]
+position = Vector2( 1, -72 )
+
+[node name="ShootSound" parent="." instance=ExtResource( 4 )]
+
+[node name="JumpSound" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1, -33 )
+
+[connection signal="area_entered" from="UpHealthArea2D" to="." method="_on_UpHealthArea2D_area_entered"]
+[connection signal="area_entered" from="Main Area1" to="." method="_on_Main_Area1_area_entered"]
+[connection signal="timeout" from="CloneTimer" to="." method="_on_CloneTimer_timeout"]

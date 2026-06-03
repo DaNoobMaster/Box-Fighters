@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Sound effects/Jump/MP3/Jump 1 - Sound effects Pack 2.mp3" type="AudioStream" id=1]
+
+[node name="JumpSound" type="AudioStreamPlayer2D"]
+stream = ExtResource( 1 )
+volume_db = 5.7

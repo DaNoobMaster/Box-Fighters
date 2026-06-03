@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Game Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/Main Menu.gd" type="Script" id=2]
+
+[node name="Main Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.352941, 0.176471, 0.176471, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainPanel" type="Panel" parent="."]
+anchor_right = 1.0
+margin_bottom = 100.0
+
+[node name="MainLabel" type="Label" parent="MainPanel"]
+margin_right = 1920.0
+margin_bottom = 100.0
+text = "Main menu"
+align = 1
+valign = 1
+clip_text = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SUBPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -250.0
+margin_right = 250.0
+margin_bottom = 250.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonContainer" type="VBoxContainer" parent="SUBPanel"]
+margin_left = 16.0
+margin_top = 13.0
+margin_right = 484.0
+margin_bottom = 483.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="SUBPanel/ButtonContainer"]
+margin_top = 47.0
+margin_right = 468.0
+margin_bottom = 119.0
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="SUBPanel/ButtonContainer"]
+margin_top = 123.0
+margin_right = 468.0
+margin_bottom = 195.0
+text = "Options"
+
+[node name="Button" type="Button" parent="SUBPanel/ButtonContainer"]
+margin_top = 199.0
+margin_right = 468.0
+margin_bottom = 271.0
+text = "Fullscreen"
+
+[node name="ModeButton" type="Button" parent="SUBPanel/ButtonContainer"]
+margin_top = 275.0
+margin_right = 468.0
+margin_bottom = 347.0
+text = "Change Mode"
+
+[node name="QuitButton" type="Button" parent="SUBPanel/ButtonContainer"]
+margin_top = 351.0
+margin_right = 468.0
+margin_bottom = 423.0
+text = "Quit "
+
+[connection signal="pressed" from="SUBPanel/ButtonContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="SUBPanel/ButtonContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="SUBPanel/ButtonContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="SUBPanel/ButtonContainer/ModeButton" to="." method="_on_ModeButton_pressed"]
+[connection signal="pressed" from="SUBPanel/ButtonContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
